@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BroDue - Data Import</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #FAF9FD;
+    color: #2A3342;
+    margin: 0;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+  }
+  .wrap { max-width: 640px; width: 100%; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.sub { color: #8A93A3; font-size: 14px; margin: 0 0 20px; }
+  .card {
+    background: #fff;
+    border: 1px solid #E9EDF3;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+  h2 { font-size: 15px; margin: 0 0 12px; color: #565C70; }
+  button {
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 16px;
+    cursor: pointer;
+  }
+  .btn-danger { background: #F7E3E0; color: #D04444; }
+  .btn-primary { background: #DEE2F6; color: #1A2151; width: 100%; margin-top: 12px; }
+  textarea {
+    width: 100%;
+    height: 260px;
+    font-size: 13px;
+    font-family: Menlo, Consolas, monospace;
+    border: 1px solid #E9EDF3;
+    border-radius: 10px;
+    padding: 10px;
+    resize: vertical;
+    background: #F7F9FC;
+    color: #2A3342;
+  }
+  #status { margin-top: 12px; font-size: 13px; white-space: pre-wrap; }
+  .ok { color: #2E9E6E; }
+  .err { color: #D04444; }
+  code { background: #F7F9FC; border: 1px solid #E9EDF3; border-radius: 6px; padding: 1px 5px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>BroDue Data Import</h1>
+    <p class="sub">Temporary tool to send old data to the app.</p>
+
+    <div class="card">
+      <h2>Step 1 - Delete current data</h2>
+      <button class="btn-danger" id="btnDelete">Delete all current data</button>
+    </div>
+
+    <div class="card">
+      <h2>Step 2 - Paste data</h2>
+      <p class="sub">Paste the whole sheet (tab separated, with the header row).</p>
+      <textarea id="data" placeholder="Name&#9;Send/Receive&#9;Date&#9;Time&#9;Amount&#9;Category&#9;Note&#10;Anshu Pen&#9;Send&#9;24 Jun 2026&#9;11:50 am&#9;49&#9;Recharge&#9;recharge to +91 96642 40649"></textarea>
+      <button class="btn-primary" id="btnImport">Import Data</button>
+    </div>
+
+    <div id="status"></div>
+  </div>
+
+<script>
+const DB = 'https://brodue-v2-default-rtdb.asia-southeast1.firebasedatabase.app';
+
+function setStatus(html, cls) {
+  const el = document.getElementById('status');
+  el.className = cls || '';
+  el.innerHTML = html;
+}
+
+const PUSH_CHARS = '-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz';
+let lastPushTime = 0;
+let lastRandChars = [];
+function pushId() {
+  let now = Date.now();
+  const dup = now === lastPushTime;
+  lastPushTime = now;
+  const ts = new Array(8);
+  for (let i = 7; i >= 0; i--) { ts[i] = PUSH_CHARS.charAt(now % 64); now = Math.floor(now / 64); }
+  let id = ts.join('');
+  if (!dup) {
+    for (let i = 0; i < 12; i++) lastRandChars[i] = Math.floor(Math.random() * 64);
+  } else {
+    let i = 0;
+    for (; i < 11 && lastRandChars[i] === 63; i++) lastRandChars[i] = 0;
+    lastRandChars[i]++;
+  }
+  for (let i = 0; i < 12; i++) id += PUSH_CHARS.charAt(lastRandChars[i]);
+  return id;
+}
+
+const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+
+function parseDateTime(dateStr, timeStr) {
+  const dm = dateStr.trim().match(/^(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})$/);
+  if (!dm || MONTHS[dm[2]] === undefined) return null;
+  const tm = timeStr.trim().replace(/\s+/g, ' ').match(/^(\d{1,2}):(\d{2})\s*(am|pm)$/i);
+  if (!tm) return null;
+  let h = parseInt(tm[1], 10);
+  const min = parseInt(tm[2], 10);
+  const ampm = tm[3].toLowerCase();
+  if (ampm === 'pm' && h < 12) h += 12;
+  if (ampm === 'am' && h === 12) h = 0;
+  return new Date(parseInt(dm[3], 10), MONTHS[dm[2]], parseInt(dm[1], 10), h, min, 0, 0).getTime();
+}
+
+function parseRows(text) {
+  const people = new Map();
+  const rows = text.split(/\r?\n/);
+  let skippedHeader = false;
+  let txCount = 0;
+  let errs = [];
+
+  for (let line of rows) {
+    if (!line.trim()) continue;
+    const f = line.split('\t').map(s => s.trim());
+    if (!skippedHeader && /^name$/i.test(f[0]) && f[1] && /send|receive/i.test(f[1])) {
+      skippedHeader = true;
+      continue;
+    }
+    skippedHeader = true;
+    if (f.length < 6) { errs.push('Row skipped (too few columns): ' + line.slice(0, 40)); continue; }
+
+    const name = f[0];
+    const dir = f[1].toLowerCase();
+    const ts = parseDateTime(f[2], f[3]);
+    if (!ts) { errs.push('Row skipped (bad date/time): ' + line.slice(0, 60)); continue; }
+    const amount = parseInt(f[4].replace(/[^0-9]/g, ''), 10);
+    if (!(amount > 0)) { errs.push('Row skipped (bad amount): ' + line.slice(0, 60)); continue; }
+    const category = f[5] || 'Online';
+    const note = f.slice(6).join('\t').trim();
+
+    if (!people.has(name)) people.set(name, []);
+    people.get(name).push({
+      type: dir.startsWith('rec') ? 'received' : 'gave',
+      amount: amount,
+      category: category,
+      note: note,
+      createdAt: ts,
+      savedAt: ts
+    });
+    txCount++;
+  }
+  return { people, txCount, errs };
+}
+
+document.getElementById('btnDelete').addEventListener('click', async () => {
+  if (!confirm('Delete ALL current data from the app database?')) return;
+  setStatus('Deleting...');
+  try {
+    const r = await fetch(DB + '/people.json', { method: 'DELETE' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    await fetch(DB + '/peopleCount.json', { method: 'DELETE' });
+    setStatus('Deleted. All current data removed.', 'ok');
+  } catch (e) {
+    setStatus('Delete failed: ' + e.message, 'err');
+  }
+});
+
+document.getElementById('btnImport').addEventListener('click', async () => {
+  const text = document.getElementById('data').value;
+  if (!text.trim()) { setStatus('Paste some data first.', 'err'); return; }
+
+  const { people, txCount, errs } = parseRows(text);
+  if (people.size === 0) { setStatus('No valid rows found.\n' + errs.slice(0, 5).join('\n'), 'err'); return; }
+
+  setStatus('Importing ' + people.size + ' people, ' + txCount + ' entries...');
+
+  const tree = {};
+  people.forEach((txs, name) => {
+    const personKey = pushId();
+    const transactions = {};
+    let minTs = Infinity;
+    let maxTs = 0;
+    let net = 0;
+    txs.forEach(t => {
+      transactions[pushId()] = t;
+      if (t.createdAt < minTs) minTs = t.createdAt;
+      if (t.createdAt > maxTs) maxTs = t.createdAt;
+      net += (t.type === 'received' ? t.amount : -t.amount);
+    });
+    tree[personKey] = {
+      name: name,
+      mobile: '',
+      createdAt: minTs,
+      updatedAt: maxTs,
+      netAmount: net,
+      transactions: transactions
+    };
+  });
+
+  try {
+    const r = await fetch(DB + '/people.json', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(tree)
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    await fetch(DB + '/peopleCount.json', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(people.size)
+    });
+    const head = errs.length ? '\nWarnings (' + errs.length + '):\n' + errs.slice(0, 5).join('\n') : '';
+    setStatus('Done! Imported ' + people.size + ' people and ' + txCount + ' entries.' + head, errs.length ? 'err' : 'ok');
+  } catch (e) {
+    setStatus('Import failed: ' + e.message, 'err');
+  }
+});
+</script>
+</body>
+</html>

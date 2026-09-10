@@ -1,0 +1,47 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+.idea/
+
+# Firebase config - project/server identifiers, keep private.
+# Copy google-services.json.example -> app/google-services.json and fill in
+# your own Firebase project values to build from source.
+app/google-services.json
+
+# Signing keys - NEVER commit these
+*.jks
+*.keystore
+keystore.properties
+keystore/
+
+# Firestore security rules - server access logic, keep private.
+# (Devs: copy from a trusted checkout; never paste these publicly.)
+firestore.rules
+firestore.strict.rules
+
+# Service-account keys and env secrets - NEVER commit these
+service-account*.json
+*-service-account.json
+serviceAccount*.json
+*.env
+.env
+# Cloudflare Worker backend (endpoints, rate limits, service logic).
+# Deployed via `wrangler deploy`, never published.
+worker/
+
+# Local build/runtime artifacts
+.kotlin/
+app/release/
+

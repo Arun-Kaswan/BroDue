@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="avatar_letter_colors">
+        <item>@color/letter_1</item>
+        <item>@color/letter_2</item>
+        <item>@color/letter_3</item>
+        <item>@color/letter_4</item>
+        <item>@color/letter_5</item>
+        <item>@color/letter_6</item>
+    </integer-array>
+
+    <integer-array name="avatar_bg_colors">
+        <item>@color/letter_1_bg</item>
+        <item>@color/letter_2_bg</item>
+        <item>@color/letter_3_bg</item>
+        <item>@color/letter_4_bg</item>
+        <item>@color/letter_5_bg</item>
+        <item>@color/letter_6_bg</item>
+    </integer-array>
+</resources>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Big animated circles - large, partially off-screen, overlapping -->
+    <View
+        android:id="@+id/bigCircleTopLeft"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:alpha="0.30"
+        android:background="@drawable/bg_login_orb"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="-140dp"
+        android:layout_marginTop="-100dp" />
+
+    <View
+        android:id="@+id/bigCircleTopRight"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:alpha="0.16"
+        android:background="@drawable/bg_login_orb"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="-120dp"
+        android:layout_marginTop="-110dp" />
+
+    <View
+        android:id="@+id/bigCircleBottomRight"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
+        android:alpha="0.35"
+        android:background="@drawable/bg_login_orb"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="-140dp"
+        android:layout_marginBottom="-140dp" />
+
+    <!-- Floating symbols -->
+    <TextView
+        android:id="@+id/floatDollar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.06"
+        android:fontFamily="sans-serif-medium"
+        android:rotation="14"
+        android:text="$"
+        android:textColor="@color/cat_amber"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="140dp" />
+
+    <TextView
+        android:id="@+id/floatEuro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.05"
+        android:fontFamily="sans-serif-medium"
+        android:rotation="-10"
+        android:text="€"
+        android:textColor="@color/cat_teal"
+        android:textSize="38sp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="48dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="280dp" />
+
+    <TextView
+        android:id="@+id/floatYen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.05"
+        android:fontFamily="sans-serif-medium"
+        android:rotation="12"
+        android:text="¥"
+        android:textColor="@color/cat_purple"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="52dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="320dp" />
+
+    <!-- Main branding - top half -->
+    <LinearLayout
+        android:id="@+id/loginBranding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/btnGetStarted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.38">
+
+        <FrameLayout
+            android:layout_width="110dp"
+            android:layout_height="110dp">
+
+            <ImageView
+                android:id="@+id/loginLogo"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@mipmap/ic_launcher_round"
+                tools:ignore="ContentDescription" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/loginTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="sans-serif-medium"
+            android:letterSpacing="0.02"
+            android:text="@string/app_name"
+            android:textColor="@color/navy_text"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/loginTagline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:alpha="0.0"
+            android:text="Track money with trust"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnGetStarted"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="48dp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:text="Get Started"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/primary"
+        app:cornerRadius="28dp"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Tiny trust footer -->
+    <TextView
+        android:id="@+id/loginFooter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.0"
+        android:drawableStart="@drawable/ic_app_lock"
+        android:drawablePadding="6dp"
+        android:drawableTint="@color/grey_soft"
+        android:gravity="center"
+        android:text="Secured with Google  •  Open source"
+        android:textColor="@color/grey_soft"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@id/btnGetStarted"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="14dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

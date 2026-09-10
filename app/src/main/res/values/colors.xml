@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#5B6BA3</color>
+    <color name="net_card_bg">#F0F2FB</color>
+    <color name="on_primary">#FFFFFFFF</color>
+    <color name="primary_container">#DEE2F6</color>
+    <color name="on_primary_container">#1A2151</color>
+
+    <color name="secondary">#6A7085</color>
+    <color name="on_secondary">#FFFFFFFF</color>
+    <color name="secondary_container">#E4E3F0</color>
+    <color name="on_secondary_container">#222540</color>
+
+    <color name="background">#FAF9FD</color>
+    <color name="status_bar">#EBEDF6</color>
+    <color name="surface">#FFFFFFFF</color>
+    <color name="surface_variant">#E7E9F5</color>
+    <color name="on_surface_variant">#565C70</color>
+
+    <color name="outline">#C1C6D8</color>
+    <color name="outline_variant">#DCE0EC</color>
+
+    <color name="text_primary">#1C1B29</color>
+    <color name="text_secondary">#565C70</color>
+
+    <color name="card_border">#FFE9EDF3</color>
+
+    <color name="letter_1">#5B6BA3</color>
+    <color name="letter_2">#8A6FA5</color>
+    <color name="letter_3">#4E7D9E</color>
+    <color name="letter_4">#5E8C7B</color>
+    <color name="letter_5">#B07B63</color>
+    <color name="letter_6">#9E6FA0</color>
+
+    <color name="letter_1_bg">#DEE2F6</color>
+    <color name="letter_2_bg">#E9E0F4</color>
+    <color name="letter_3_bg">#DCE8F0</color>
+    <color name="letter_4_bg">#DFECE6</color>
+    <color name="letter_5_bg">#F1E4DE</color>
+    <color name="letter_6_bg">#EDE2EE</color>
+
+    <color name="positive">#2E9E6E</color>
+    <color name="positive_container">#DDF0E4</color>
+    <color name="positive_border">#1A2E9E6E</color>
+    <color name="negative">#D04444</color>
+    <color name="negative_container">#F7E3E0</color>
+    <color name="negative_border">#1AD04444</color>
+
+    <color name="navy_text">#2A3342</color>
+    <color name="grey_soft">#8A93A3</color>
+    <color name="border_light">#E9EDF3</color>
+    <color name="field_bg">#F7F9FC</color>
+    <color name="accent_purple">#6D7BD8</color>
+
+    <color name="cat_blue">#5582F0</color>
+    <color name="cat_blue_soft">#1F5582F0</color>
+    <color name="cat_amber">#DD9630</color>
+    <color name="cat_amber_soft">#1FDD9630</color>
+    <color name="cat_green">#2E9E6E</color>
+    <color name="cat_green_soft">#1F2E9E6E</color>
+    <color name="cat_purple">#9A6FE0</color>
+    <color name="cat_purple_soft">#1F9A6FE0</color>
+    <color name="cat_teal">#0FA5B8</color>
+    <color name="cat_teal_soft">#1F0FA5B8</color>
+    <color name="manage_bg">#4DDDE2F6</color>
+
+    <color name="save_green">#2E9E6E</color>
+    <color name="save_green_soft">#1F2E9E6E</color>
+    <color name="save_red">#D04444</color>
+    <color name="save_red_soft">#1FD04444</color>
+
+    <color name="whatsapp_green">#25D366</color>
+    <color name="whatsapp_green_soft">#1F25D366</color>
+</resources>
