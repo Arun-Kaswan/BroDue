@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BroDue: Track the money you lend and borrow</title>
+  <meta name="description" content="BroDue is a simple, privacy-friendly money manager for friends and family. Track who owes what, stay in sync, and never lose track of a cent. Free forever." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="./website/assets/B-logo.avif" type="image/avif" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./website/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+
+    
+    <div class="header-wrap">
+      <header class="pill-header" id="pillHeader">
+        <div class="pill-glow" aria-hidden="true"></div>
+        <a class="pill-brand" href="#top" aria-label="BroDue home">
+          <span class="pill-logo">
+            <img src="./website/assets/logo.svg" alt="BroDue logo" width="40" height="40" />
+          </span>
+          <span class="pill-word">BroDue</span>
+        </a>
+        <nav class="pill-nav" aria-label="Primary">
+          <a href="#features">Introduction</a>
+          <a href="#privacy">Features</a>
+          <a href="#security">Privacy</a>
+          <a href="#plans">Plans</a>
+        </nav>
+        <div class="pill-actions">
+          <a class="pill-github" href="https://github.com/Arun-Kaswan/BroDue" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.93.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5.01 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.22 10.22 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/></svg>
+          </a>
+          <a class="pill-cta" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Download APK</span>
+          </a>
+          <button class="pill-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </header>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#features">Introduction</a>
+        <a href="#privacy">Features</a>
+        <a href="#security">Privacy</a>
+        <a href="#plans">Plans</a>
+        <div class="mobile-menu-actions">
+          <a class="pill-github" href="https://github.com/Arun-Kaswan/BroDue" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.93.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5.01 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.22 10.22 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/></svg>
+          </a>
+          <a class="btn btn--light" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">Download APK</a>
+        </div>
+      </div>
+    </div>
+
+    
+    <section class="hero" id="top">
+      
+      <div class="hero-desktop" style="height:100vh">
+        <div class="hero-desktop-bg"><img alt="" class="hero-desktop-img" src="./website/assets/home.avif" sizes="100vw" width="2400" height="1350" decoding="async" fetchpriority="high" /></div>
+        <div class="hero-blur-desktop" aria-hidden="true"></div>
+        <div class="hero-shade-desktop" aria-hidden="true"></div>
+        <div class="hero-content-desktop">
+          <div class="hero-stack-desktop">
+            <div class="hero-copy-desktop">
+              <h1 class="hero-title-desktop">BroDue. Track who owes what.</h1>
+              <p class="hero-desc-desktop"><span>Simple money manager for friends and family. Add people, log everything you give or receive, and stay in sync, free forever.</span></p>
+            </div>
+            <div class="hero-btns-desktop">
+              <a class="hero-btn-primary-desktop" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest"><span>Download for Android</span></a>
+              <a class="hero-btn-secondary-desktop" href="#how"><span>See how it works</span></a>
+            </div>
+            <div class="hero-links-desktop"><span>Android 7.0+</span><span>v1.1.1</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-mobile" style="height:100vh">
+        <img alt="" class="hero-mobile-img" src="./website/assets/home.avif" sizes="100vw" width="1080" height="1920" decoding="async" fetchpriority="high" />
+        <div class="hero-blur-mobile" aria-hidden="true"></div>
+        <div class="hero-shade-mobile" aria-hidden="true"></div>
+        <div class="hero-content-mobile">
+          <div class="hero-stack-mobile">
+            <div class="hero-copy-mobile">
+              <p class="hero-title-mobile">BroDue. Track who owes what.</p>
+              <p class="hero-desc-mobile"><span>Simple money manager for friends and family. Add people, log everything you give or receive, free forever.</span></p>
+            </div>
+            <div class="hero-btns-mobile">
+              <a class="hero-btn-primary-mobile" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest"><span>Download for Android</span></a>
+              <a class="hero-btn-secondary-mobile" href="#how"><span>See how it works</span></a>
+            </div>
+            <div class="hero-links-mobile"><span>Android 7.0+</span><span>v1.1.1</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <div class="body-white">
+
+      
+      <section class="strip">
+        <div class="strip-inner">
+          <span class="strip-caption">Built for real life, not spreadsheets</span>
+          <div class="strip-marquee" aria-label="Highlights">
+            <div class="strip-stats">
+              <span><strong>Cloud sync</strong> with permissions</span><span class="strip-dot">·</span>
+              <span><strong>Fingerprint</strong> protected</span><span class="strip-dot">·</span>
+              <span><strong>Instant</strong> push updates</span><span class="strip-dot">·</span>
+              <span><strong>Multi-currency</strong> ready</span><span class="strip-dot">·</span>
+              <span aria-hidden="true"><strong>Cloud sync</strong> with permissions</span><span class="strip-dot" aria-hidden="true">·</span>
+              <span aria-hidden="true"><strong>Fingerprint</strong> protected</span><span class="strip-dot" aria-hidden="true">·</span>
+              <span aria-hidden="true"><strong>Instant</strong> push updates</span><span class="strip-dot" aria-hidden="true">·</span>
+              <span aria-hidden="true"><strong>Multi-currency</strong> ready</span><span class="strip-dot" aria-hidden="true">·</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section section--dark" id="features">
+        <div class="wrap">
+          <video class="reveal-video" src="./website/assets/b-reveal.webm" autoplay muted playsinline preload="metadata"></video>
+          <div class="section-head">
+            <h2>With BroDue, money stays clear.</h2>
+            <p>Everything you need to track lending and borrowing, without the clutter of a full accounting app.</p>
+          </div>
+          <div class="grid grid--3">
+            <article class="soft-card reveal">
+              <div class="soft-icon" style="background:#6d2dc2;color:#fff;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M458-240Zm-218 80q-33 0-56.5-23.5T160-240v-32q0-34 17.5-62.5T224-378q31-16 62.5-27t63.5-19q23-5 45-9t45-6q17-2 28.5 10t11.5 29q0 17-11.5 28.5T440-358q-18 2-35.5 4t-35.5 7q-28 7-55 17t-54 24q-9 5-14.5 14t-5.5 20v32h218q17 0 28.5 11.5T498-200q0 17-11.5 28.5T458-160H240Zm320-215q0-11 5.5-21t16.5-15l120-60q8-5 18-5t18 5l120 60q11 5 16.5 15t5.5 21v77q0 69-36 125t-98 85q-6 3-12.5 4T720-83q-7 0-13.5-1T694-88q-62-29-98-85t-36-125v-77Zm160 211q38-18 59-55t21-79v-52l-80-40-80 40v52q0 42 21 79t59 55ZM367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47Zm169.5-56.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm240 363Z"/></svg></div>
+              <h3>People-first tracking</h3>
+              <p>Each person gets their own net balance, history and trend graph. Sort by name, value or recent activity.</p>
+            </article>
+            <article class="soft-card reveal">
+              <div class="soft-icon" style="background:#fde819;color:#17181c;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M331.5-451.5Q320-463 320-480v-247l-75 75q-11 11-27.5 11T189-652q-12-12-12-28.5t12-28.5l143-143q6-6 13-8.5t15-2.5q8 0 15 2.5t13 8.5l144 144q12 12 11.5 28T531-652q-12 11-28 11.5T475-652l-75-75v247q0 17-11.5 28.5T360-440q-17 0-28.5-11.5ZM585-99.5q-7-2.5-13-8.5L428-252q-12-12-11.5-28t12.5-28q12-11 28-11.5t28 11.5l75 75v-247q0-17 11.5-28.5T600-520q17 0 28.5 11.5T640-480v247l75-75q11-11 27.5-11t28.5 11q12 12 12 28.5T771-251L628-108q-6 6-13 8.5T600-97q-8 0-15-2.5Z"/></svg></div>
+              <h3>I gave / I received</h3>
+              <p>Log every amount with category, note and custom date-time. Swipe to edit, works fully offline.</p>
+            </article>
+            <article class="soft-card reveal">
+              <div class="soft-icon" style="background:#49c8b2;color:#fff;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-507h560v-133H200v133Zm0 214h560v-134H200v134Zm0 213h560v-133H200v133Zm51.5-465.5Q240-677 240-694t11.5-28.5Q263-734 280-734t28.5 11.5Q320-711 320-694t-11.5 28.5Q297-654 280-654t-28.5-11.5Zm0 214Q240-463 240-480t11.5-28.5Q263-520 280-520t28.5 11.5Q320-497 320-480t-11.5 28.5Q297-440 280-440t-28.5-11.5Zm0 214Q240-249 240-266t11.5-28.5Q263-306 280-306t28.5 11.5Q320-283 320-266t-11.5 28.5Q297-226 280-226t-28.5-11.5Z"/></svg></div>
+              <h3>Logs &amp; statements</h3>
+              <p>One timeline for every transaction. Export any person as JPG or PDF and share on WhatsApp.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="img-columns" id="how">
+        <div class="img-columns-inner">
+          <p class="img-columns-lead reveal"><strong>Your people, your money, your momentum</strong><span>, in one glance with BroDue.</span></p>
+          <div class="img-columns-grid">
+            <div class="img-col-tall reveal">
+              <img src="./website/assets/person.avif" alt="People and balances in BroDue" loading="lazy" decoding="async" />
+              <div class="img-col-fade" aria-hidden="true"></div>
+            </div>
+            <div class="img-col-stack">
+              <div class="img-col-cell reveal">
+                <div class="img-col-card">
+                  <img src="./website/assets/graph.avif" alt="Balance trend graph in BroDue" loading="lazy" decoding="async" />
+                  <div class="img-col-fade" aria-hidden="true"></div>
+                </div>
+              </div>
+              <div class="img-col-cell img-col-card--overlap reveal">
+                <div class="img-col-card">
+                  <img src="./website/assets/share.avif" alt="Sharing a person from BroDue" loading="lazy" decoding="async" />
+                  <div class="img-col-fade" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="steps">
+            <div class="step reveal"><span class="step-num">1</span><h4>Add people</h4><p>Pick from contacts or type a name. Choose your currency once, each person keeps theirs.</p></div>
+            <div class="step reveal"><span class="step-num">2</span><h4>Log every amount</h4><p>Tap I gave / I received, pick a category, add a note. Works offline, syncs later.</p></div>
+            <div class="step reveal"><span class="step-num">3</span><h4>Stay in sync</h4><p>Share a 6-digit code or QR. Joined members get instant pushes, no polling.</p></div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section section--tint" id="privacy">
+        <div class="wrap grid grid--2 grid--middle">
+          <div class="reveal">
+            <span class="tag-pill">Privacy &amp; reliability</span>
+            <h2 class="h-md">Your money, your rules.</h2>
+            <ul class="check-list">
+              <li><strong>Stay in control:</strong> you create the sharing code, you choose reader vs. writer, you revoke with one swipe.</li>
+              <li><strong>Always accurate:</strong> balances are verified on the server, nobody can forge totals.</li>
+              <li><strong>Private by design:</strong> only members you add can see a person's data.</li>
+              <li><strong>Safe backups:</strong> encrypted backup files with optional PIN and automatic retention.</li>
+              <li><strong>Protected updates:</strong> a safety backup is taken automatically before every update.</li>
+            </ul>
+            <a class="btn btn--dark" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">Download BroDue →</a>
+          </div>
+          <div class="mock-card reveal">
+            <div class="security-grid">
+              <div class="sec-card"><span class="sec-icon" style="background:#DEE2F6;color:#5B6BA3;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M444-360h72q9 0 15.5-7.5T536-384l-19-105q20-10 31.5-29t11.5-42q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 23 11.5 42t31.5 29l-19 105q-2 9 4.5 16.5T444-360Zm23 275q-6-1-12-3-135-45-215-166.5T160-516v-189q0-25 14.5-45t37.5-29l240-90q14-5 28-5t28 5l240 90q23 9 37.5 29t14.5 45v189q0 140-80 261.5T505-88q-6 2-12 3t-13 1q-7 0-13-1Zm13-79q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z"/></svg></span><strong>Private sharing</strong><span>Only people you invite can see a record. Readers view, writers add.</span></div>
+              <div class="sec-card"><span class="sec-icon" style="background:#17181c;color:#fff;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M360-116q-16 0-28-11.5T320-157v-124q-101-8-170.5-82T80-540q0-109 75.5-184.5T340-800h27l-36-36q-11-11-11-27.5t12-28.5q11-11 28-11t28 11l104 104q6 6 8.5 13t2.5 15q0 8-2.5 15t-8.5 13L388-628q-11 11-27.5 11.5T332-628q-11-11-11-28t11-28l35-36h-27q-75 0-127.5 52.5T160-540q0 75 52.5 127.5T340-360h60v107l107-107h113q75 0 127.5-52.5T800-540q0-75-52.5-127.5T620-720q-17 0-28.5-11.5T580-760q0-17 11.5-28.5T620-800q109 0 184.5 75.5T880-540q0 109-75.5 184.5T620-280h-80L388-128q-6 6-13 9t-15 3Z"/></svg></span><strong>Instant sync</strong><span>Changes appear in seconds on every device, even when closed.</span></div>
+              <div class="sec-card"><span class="sec-icon" style="background:#eaecec;color:#565d6b;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M360-280h240q17 0 28.5-11.5T640-320q0-17-11.5-28.5T600-360H360q-17 0-28.5 11.5T320-320q0 17 11.5 28.5T360-280Zm78-232-58-58q-11-11-28-11t-28 11q-11 11-11 28t11 28l86 86q12 12 28 12t28-12l170-170q12-12 11.5-28.5T635-654q-12-11-28.5-10.5T579-653L438-512Zm42 432q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg></span><strong>Works offline</strong><span>No signal? Keep logging. Everything syncs when you're back.</span></div>
+              <div class="sec-card"><span class="sec-icon" style="background:#dcfce7;color:#16a34a;"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M360-640h240v-80q0-50-35-85t-85-35q-50 0-85 35t-35 85v80ZM240-80q-33 0-56.5-23.5T160-160v-400q0-33 23.5-56.5T240-640h40v-80q0-83 58.5-141.5T480-920q83 0 141.5 58.5T680-720v80h40q33 0 56.5 23.5T800-560q0 20-12.5 30T760-520q-15 0-27.5-10T720-560H240v400h200q17 0 28.5 11.5T480-120q0 17-11.5 28.5T440-80H240Zm0-480v400-400Zm522.5 302.5Q780-275 780-300t-17.5-42.5Q745-360 720-360t-42.5 17.5Q660-325 660-300t17.5 42.5Q695-240 720-240t42.5-17.5ZM776-134q26-14 43-39-23-14-48-20.5t-51-6.5q-26 0-51 6.5T621-173q17 25 43 39t56 14q30 0 56-14ZM578.5-98.5Q520-157 520-240t58.5-141.5Q637-440 720-440t141.5 58.5Q920-323 920-240T861.5-98.5Q803-40 720-40T578.5-98.5Z"/></svg></span><strong>Your data, your phone</strong><span>Saved locally first. Move or restore anytime.</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section section--tint" id="feature-grid">
+        <div class="wrap">
+          <div class="section-head">
+            <h2>Every tool, one home.</h2>
+            <p>From locking the app to sharing the books, everything lives one tap away.</p>
+          </div>
+          <div class="grid grid--4">
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M480-380ZM260-160q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q96 0 169.5 56T749-600q5 17-4.5 30T721-553q-14 4-29-3t-22-27q-20-60-72-98.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h260q17 0 28.5 11.5T560-200q0 17-11.5 28.5T520-160H260Zm420 0q-17 0-28.5-11.5T640-200v-120q0-17 11.5-28.5T680-360v-40q0-33 23.5-56.5T760-480q33 0 56.5 23.5T840-400v40q17 0 28.5 11.5T880-320v120q0 17-11.5 28.5T840-160H680Zm40-200h80v-40q0-17-11.5-28.5T760-440q-17 0-28.5 11.5T720-400v40Z"/></svg></div><h4>Cloud sync</h4><p>Sync and share with reader or writer access.</p></article>
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M481-781q106 0 200 45.5T838-604q7 9 4.5 16t-8.5 12q-6 5-14 4.5t-14-8.5q-55-78-141.5-119.5T481-741q-97 0-182 41.5T158-580q-6 9-14 10t-14-4q-7-5-8.5-12.5T126-602q62-85 155.5-132T481-781Zm0 94q135 0 232 90t97 223q0 50-35.5 83.5T688-257q-51 0-87.5-33.5T564-374q0-33-24.5-55.5T481-452q-34 0-58.5 22.5T398-374q0 97 57.5 162T604-121q9 3 12 10t1 15q-2 7-8 12t-15 3q-104-26-170-103.5T358-374q0-50 36-84t87-34q51 0 87 34t36 84q0 33 25 55.5t59 22.5q34 0 58-22.5t24-55.5q0-116-85-195t-203-79q-118 0-203 79t-85 194q0 24 4.5 60t21.5 84q3 9-.5 16T208-205q-8 3-15.5-.5T182-217q-15-39-21.5-77.5T154-374q0-133 96.5-223T481-687Zm0-192q64 0 125 15.5T724-819q9 5 10.5 12t-1.5 14q-3 7-10 11t-17-1q-53-27-109.5-41.5T481-839q-58 0-114 13.5T260-783q-8 5-16 2.5T232-791q-4-8-2-14.5t10-11.5q56-30 117-46t124-16Zm0 289q93 0 160 62.5T708-374q0 9-5.5 14.5T688-354q-8 0-14-5.5t-6-14.5q0-75-55.5-125.5T481-550q-76 0-130.5 50.5T296-374q0 81 28 137.5T406-123q6 6 6 14t-6 14q-6 6-14 6t-14-6q-59-62-90.5-126.5T256-374q0-91 66-153.5T481-590Zm-1 196q9 0 14.5 6t5.5 14q0 75 54 123t126 48q6 0 17-1t23-3q9-2 15.5 2.5T744-191q2 8-3 14t-13 8q-18 5-31.5 5.5t-16.5.5q-89 0-154.5-60T460-374q0-8 5.5-14t14.5-6Z"/></svg></div><h4>Fingerprint lock</h4><p>Lock the app and actions with biometrics.</p></article>
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M120-280h720q17 0 28.5 11.5T880-240q0 17-11.5 28.5T840-200H120q-17 0-28.5-11.5T80-240q0-17 11.5-28.5T120-280Zm40-222-19 34q-6 11-18 14t-23-3q-11-6-14-18t3-23l19-34H70q-13 0-21.5-8.5T40-562q0-13 8.5-21.5T70-592h38l-19-32q-6-11-3-23t14-18q11-6 23-3t18 14l19 32 19-32q6-11 18-14t23 3q11 6 14 18t-3 23l-19 32h38q13 0 21.5 8.5T280-562q0 13-8.5 21.5T250-532h-38l19 34q6 11 3 23t-14 18q-11 6-23 3t-18-14l-19-34Zm320 0-19 34q-6 11-18 14t-23-3q-11-6-14-18t3-23l19-34h-38q-13 0-21.5-8.5T360-562q0-13 8.5-21.5T390-592h38l-19-32q-6-11-3-23t14-18q11-6 23-3t18 14l19 32 19-32q6-11 18-14t23 3q11 6 14 18t-3 23l-19 32h38q13 0 21.5 8.5T600-562q0 13-8.5 21.5T570-532h-38l19 34q6 11 3 23t-14 18q-11 6-23 3t-18-14l-19-34Zm320 0-19 34q-6 11-18 14t-23-3q-11-6-14-18t3-23l19-34h-38q-13 0-21.5-8.5T680-562q0-13 8.5-21.5T710-592h38l-19-32q-6-11-3-23t14-18q11-6 23-3t18 14l19 32 19-32q6-11 18-14t23 3q11 6 14 18t-3 23l-19 32h38q13 0 21.5 8.5T920-562q0 13-8.5 21.5T890-532h-38l19 34q6 11 3 23t-14 18q-11 6-23 3t-18-14l-19-34Z"/></svg></div><h4>6-digit codes + QR</h4><p>Share a code or QR to invite members.</p></article>
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="m440-446-36 35q-11 11-27.5 11T348-412q-11-11-11-28t11-28l104-104q12-12 28-12t28 12l104 104q11 11 11.5 27.5T612-412q-11 11-27.5 11.5T556-411l-36-35v206h220q42 0 71-29t29-71q0-42-29-71t-71-29h-60v-80q0-83-58.5-141.5T480-720q-83 0-141.5 58.5T280-520h-20q-58 0-99 41t-41 99q0 58 41 99t99 41h60q17 0 28.5 11.5T360-200q0 17-11.5 28.5T320-160h-60q-91 0-155.5-63T40-377q0-78 47-139t123-78q25-92 100-149t170-57q117 0 198.5 81.5T760-520q69 8 114.5 59.5T920-340q0 75-52.5 127.5T740-160H520q-33 0-56.5-23.5T440-240v-206Zm40 6Z"/></svg></div><h4>Backup &amp; restore</h4><p>Encrypted backups with PIN protection.</p></article>
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M480-80q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80Zm0-420ZM200-200q-17 0-28.5-11.5T160-240q0-17 11.5-28.5T200-280h40v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v13q-11 22-16 45t-4 47q-10-2-19.5-3.5T480-720q-66 0-113 47t-47 113v280h320v-257q18 8 38.5 12.5T720-520v240h40q17 0 28.5 11.5T800-240q0 17-11.5 28.5T760-200H200Zm435-435q-35-35-35-85t35-85q35-35 85-35t85 35q35 35 35 85t-35 85q-35 35-85 35t-85-35Z"/></svg></div><h4>Push notifications</h4><p>Instant alerts for every change.</p></article>
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M348.5-291.5Q360-303 360-320t-11.5-28.5Q337-360 320-360t-28.5 11.5Q280-337 280-320t11.5 28.5Q303-280 320-280t28.5-11.5Zm0-160Q360-463 360-480t-11.5-28.5Q337-520 320-520t-28.5 11.5Q280-497 280-480t11.5 28.5Q303-440 320-440t28.5-11.5Zm0-160Q360-623 360-640t-11.5-28.5Q337-680 320-680t-28.5 11.5Q280-657 280-640t11.5 28.5Q303-600 320-600t28.5-11.5ZM480-280h160q17 0 28.5-11.5T680-320q0-17-11.5-28.5T640-360H480q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm0-160h160q17 0 28.5-11.5T680-480q0-17-11.5-28.5T640-520H480q-17 0-28.5 11.5T440-480q0 17 11.5 28.5T480-440Zm0-160h160q17 0 28.5-11.5T680-640q0-17-11.5-28.5T640-680H480q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm0-560v560-560Z"/></svg></div><h4>Custom categories</h4><p>Create your own categories.</p></article>
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="M480-120q-75 0-140.5-28.5t-114-77q-48.5-48.5-77-114T120-480q0-75 28.5-140.5t77-114q48.5-48.5 114-77T480-840q82 0 155.5 35T760-706v-54q0-17 11.5-28.5T800-800q17 0 28.5 11.5T840-760v160q0 17-11.5 28.5T800-560H640q-17 0-28.5-11.5T600-600q0-17 11.5-28.5T640-640h70q-41-56-101-88t-129-32q-117 0-198.5 81.5T200-480q0 117 81.5 198.5T480-200q95 0 170-57t99-147q5-16 18-24t29-6q17 2 27 14.5t6 27.5q-29 119-126 195.5T480-120Zm40-376 100 100q11 11 11 28t-11 28q-11 11-28 11t-28-11L452-452q-6-6-9-13.5t-3-15.5v-159q0-17 11.5-28.5T480-680q17 0 28.5 11.5T520-640v144Z"/></svg></div><h4>In-app updates</h4><p>One-tap updates, no store needed.</p></article>
+            <article class="mini-card reveal"><div class="mini-icon"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor" aria-hidden="true"><path d="m730-621-74 38q-11 6-21-1.5t-8-19.5l14-80q1-5-.5-10t-5.5-8l-60-57q-9-9-5.5-20.5T586-793l83-12q4-1 15-11l38-73q6-11 18.5-11t17.5 11l37 73q1 3 15 11l82 12q13 2 17 13.5t-5 20.5l-60 57q-2 2-6 18l14 80q2 12-8.5 19.5T822-583l-73-38q-2-1-19 0ZM480-480Zm120 360H360q-50 0-90-27.5T212-219q19-7 37-15.5t36-17.5q9 23 29 37.5t46 14.5h240q33 0 56.5-23.5T680-280v-199h80v199q0 66-47 113t-113 47ZM480-480ZM122-282q-38 0-59.5-21T41-361q0-66 54-143t105-128v-48q0-66 47-113t113-47h121v80H360q-33 0-56.5 23.5T280-680v270q72-38 138-78.5T548-576q9-6 16.5-4.5T577-573q5 6 4.5 14t-8.5 15q-71 57-142.5 109.5T280-339q-35 19-77 38t-81 19Zm-2-78q20 0 40-4t40-11v-119q-32 35-51.5 67.5T120-360Z"/></svg></div><h4>Optimized for low-end</h4><p>Fast and smooth on 2 GB RAM devices.</p></article>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section section--dark" id="security">
+        <div class="wrap grid grid--2 grid--middle">
+          <div class="reveal">
+            <span class="tag-pill tag-pill--dark">Database security</span>
+            <h2 class="h-md">Guarded at the database itself.</h2>
+            <p class="lede">Every read and write is checked against per-person protection rules, before it ever touches your data. No invite, no access.</p>
+            <ul class="check-list">
+              <li><strong>Per-person rules:</strong> each person's ledger opens only to members you invited.</li>
+              <li><strong>Reader vs. writer:</strong> readers can view, writers can add, enforced server-side, not just in the app.</li>
+              <li><strong>Verified totals:</strong> balances are recalculated and validated on the server, so nobody can forge them.</li>
+            </ul>
+          </div>
+          <div class="code-card reveal">
+            <div class="code-head">
+              <span class="code-dot" style="background:#ff5f57;"></span>
+              <span class="code-dot" style="background:#febc2e;"></span>
+              <span class="code-dot" style="background:#28c840;"></span>
+              <span class="code-file">database.rules</span>
+            </div>
+<pre><span class="tok-k">database</span> {
+  match <span class="tok-s">/people/{personId}</span> {
+    <span class="tok-c">// only invited members can read</span>
+    allow read: <span class="tok-k">if</span> <span class="tok-f">isMember</span>(personId);
+    <span class="tok-c">// writers add entries, totals stay honest</span>
+    allow write: <span class="tok-k">if</span> <span class="tok-f">isWriter</span>(personId)
+                 && <span class="tok-f">validBalance</span>(personId);
+  }
+}</pre>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="section" id="plans">
+        <div class="wrap wrap--narrow">
+          <div class="section-head">
+            <h2>Pick your vibe. Pay nothing.</h2>
+            <p>We couldn't decide what to charge, so we didn't. Literally $0. Both of them. Forever.</p>
+          </div>
+          <div class="grid grid--2">
+            <div class="tier-card reveal">
+              <span class="tag-pill">For the lone wolf</span>
+              <h3>Offline</h3>
+              <div class="tier-price"><span>$0</span><em>/ forever</em></div>
+              <p class="tier-sub">Your data never leaves your phone. No internet? No problem.</p>
+              <ul class="tier-list"><li>✓ Unlimited people &amp; entries</li><li>✓ Logs, graphs &amp; statements (JPG/PDF)</li><li>✓ PIN + fingerprint lock</li><li>✓ Encrypted backups</li><li class="dim">No sync, no sharing (on purpose)</li></ul>
+              <a class="btn btn--outline btn--full" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">Get Offline · $0</a>
+            </div>
+            <div class="tier-card tier-card--dark reveal">
+              <div class="tier-head-row">
+                <span class="tag-pill tag-pill--dark">Most popular</span>
+                <span class="sync-status"><i class="sync-dot" aria-hidden="true"></i>Online</span>
+              </div>
+              <h3>Synced</h3>
+              <div class="tier-price"><span>$0</span><em>/ forever</em></div>
+              <p class="tier-sub">Everything in Offline, plus the magic of staying in sync.</p>
+              <ul class="tier-list tier-list--dark"><li>✓ Everything in Offline</li><li>✓ Cloud sync &amp; 6-digit codes + QR</li><li>✓ Instant push notifications</li><li>✓ Shared access (reader / writer)</li><li>✓ Auto-recalc &amp; update protection</li></ul>
+              <a class="btn btn--light btn--full" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">Get Synced · $0</a>
+              <span class="tier-note">Still $0. We checked twice.</span>
+            </div>
+          </div>
+          <p class="plans-foot">Psst, both plans are the same APK. The “plan” is just how you use it. 😉</p>
+        </div>
+      </section>
+
+      
+      <section class="section section--cta">
+        <div class="wrap">
+          <div class="cta-card reveal">
+            <h2>Smarter, simpler money tracking.</h2>
+            <p>Free for personal use. No ads, no tracking, just a clean, fast way to remember who owes what.</p>
+            <div class="cta-actions">
+              <a class="btn btn--dark btn--lg" data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">Download APK</a>
+              <a class="btn btn--outline btn--lg" href="#privacy">Explore features</a>
+            </div>
+            <span class="cta-note">Requires Android 7.0+ · ~12 MB · Free forever</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    
+    <section class="stats-band">
+      <div class="stats-inner">
+        <div class="stat-card reveal"><p class="stat-num">$0</p><p class="stat-label">Forever price, both plans included</p></div>
+        <div class="stat-card stat-card--wide reveal"><p class="stat-num stat-num--green">100%</p><p class="stat-label">Works offline, syncs to the cloud</p></div>
+        <div class="stat-card stat-card--wide reveal"><p class="stat-num">6-digit</p><p class="stat-label">Sharing codes + QRs, reader / writer control</p></div>
+        <div class="stat-card reveal"><p class="stat-num">∞</p><p class="stat-label">Unlimited people & entries</p></div>
+      </div>
+    </section>
+
+    
+    <footer class="site-footer">
+      <div class="footer-desktop">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="pill-logo pill-logo--footer">
+              <img src="./website/assets/logo.svg" alt="BroDue logo" width="40" height="40" />
+            </span>
+            <span class="footer-word">BroDue</span>
+          </div>
+          <nav class="footer-links" aria-label="Footer">
+            <a href="#features">Introduction</a>
+            <a href="#privacy">Features</a>
+            <a href="#security">Privacy</a>
+            <a href="#plans">Plans</a>
+            <a data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">Download</a>
+          </nav>
+          <div class="footer-social">
+            <a href="https://github.com/Arun-Kaswan/BroDue" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.93.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5.01 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.22 10.22 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+        <p class="footer-disclaimer">BroDue is a simple money manager for friends and family. Your data stays on your device, share only what you choose. Free forever, no ads, open source under the MIT License.</p>
+        <p class="footer-copy">© <span id="year">2026</span> BroDue · Made with care for everyday money.</p>
+      </div>
+      <div class="footer-mobile">
+        <div class="footer-brand footer-brand--center">
+          <span class="pill-logo pill-logo--footer">
+            <img src="./website/assets/logo.svg" alt="BroDue logo" width="40" height="40" />
+          </span>
+          <span class="footer-word">BroDue</span>
+        </div>
+        <nav class="footer-links footer-links--col" aria-label="Footer">
+          <a href="#features">Introduction</a>
+          <a href="#privacy">Features</a>
+          <a href="#security">Privacy</a>
+          <a href="#plans">Plans</a>
+          <a data-download-apk href="https://github.com/Arun-Kaswan/BroDue/releases/latest">Download APK →</a>
+        </nav>
+        <div class="footer-social">
+          <a href="https://github.com/Arun-Kaswan/BroDue" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.51 2.87 8.34 6.84 9.69.5.1.68-.22.68-.49 0-.24-.01-1.04-.02-1.89-2.78.62-3.37-1.2-3.37-1.2-.45-1.18-1.11-1.5-1.11-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.93.85.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05a9.3 9.3 0 0 1 5.01 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.81-4.57 5.06.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.22 10.22 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z" fill="currentColor"/></svg>
+          </a>
+        </div>
+        <p class="footer-disclaimer">BroDue is a simple money manager for friends and family. Your data stays on your device, share only what you choose.</p>
+        <p class="footer-copy">© <span id="yearMobile">2026</span> BroDue</p>
+      </div>
+    </footer>
+
+  </div>
+  <script src="./website/script.js"></script>
+</body>
+</html>
